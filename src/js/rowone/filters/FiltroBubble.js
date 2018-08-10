@@ -1,0 +1,1 @@
+// Ottieni info specifiche sulla centralina. Mettere mappa?
