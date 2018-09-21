@@ -12,7 +12,8 @@ import pandas as pd
 from collections import defaultdict
 
 
-import static.src.utils
+#import static.src.utils
+import static.src.write_credentials
 from static.src.utils import agenti_format,\
                              dizionario_limite, agenti,\
                              centraline, method_index,\
@@ -21,7 +22,7 @@ from static.src.plot_utils import bubble_data, radar_data,\
                                   linee_data
     
 
-
+    
 app = Flask(__name__,
 			template_folder='templates/',
 			static_folder='static/',
@@ -77,4 +78,4 @@ def viz_mappa():
 
 
 if __name__ == "__main__":
-    app.run(debug=True, host='0.0.0.0')
+    app.run(debug=True, host='0.0.0.0', port=80)
