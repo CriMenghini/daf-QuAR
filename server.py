@@ -62,7 +62,7 @@ def viz_temporale():
     nome_linee = linee_data(df, inq_objects)
     
     return render_template('index.html')
-    #return redirect(url_for('index.html'))
+    #return redirect(url_for('index'))
     
     
     #render_template('index.html')
