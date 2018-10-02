@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<script src="http://bernii.github.io/gauge.js/dist/gauge.min.js"></script>
+<style>
+    #gauge-value {
+        background-color: white;
+        position: fixed;
+        margin-top: 150px;
+        margin-left: 120px;
+        font-size: 40px;
+        font-family: Arial, Helvetica, sans-serif;
+        height: 60px;
+        width: 60px;
+        z-index: 0;
+    };
+    
+    .div-foo {
+        margin-top: 100px;
+    }
+</style>
+
+<body>
+    <div id="gauge-value"></div>
+    <div class='div-foo'>
+        <canvas id="foo"></canvas>
+    </div>
+<script>
+    var opts = {
+  fontSize: 40,
+  gradientType: 0, 
+  angle: 0,
+  
+  lineWidth: 0.30,
+  radiusScale: 1,
+  pointer: {
+    length: 0.5,
+    strokeWidth: 0.045,
+    color: '#000000'
+  },
+  limitMax: 350, 
+  limitMin: 0,
+  strokeColor: '#E0E0E0',
+  generateGradient: true,
+  highDpiSupport: true,     // High resolution support
+        
+  staticZones: [
+   {strokeStyle: "green", min: 0, max: 50}, // Red from 100 to 130
+   {strokeStyle: "yellow", min: 51, max: 100}, // Yellow
+   {strokeStyle: "orange", min: 101, max: 150}, // Green
+   {strokeStyle: "red", min: 151, max: 200}, // Yellow
+   {strokeStyle: "purple", min: 201, max: 350}  // Red
+],
+  staticLabels: {
+  font: "10px sans-serif",  // Specifies font
+  labels: [50, 100, 150, 200, 300],  // Print labels at these values
+  color: "#000000",  // Optional: Label text color
+  fractionDigits: 0  // Optional: Numerical precision. 0=round off.
+},
+};
+
+var target = document.getElementById('foo');
+var gauge = new Gauge(target).setOptions(opts);
+gauge.maxValue = 350;
+gauge.animationSpeed = 30;
+gauge.set(100);
+gauge.setTextField(document.getElementById("gauge-value"))
+</script>
+</body>
