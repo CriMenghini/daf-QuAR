@@ -21,8 +21,6 @@ from static.src.utils import agenti_format,\
 from static.src.plot_utils import bubble_data, radar_data,\
                                   linee_data
     
-
-    
 app = Flask(__name__,
 			template_folder='templates/',
 			static_folder='static/',
